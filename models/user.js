@@ -18,9 +18,12 @@ const schema = new Schema({
 		type: Number,
       	required: true
     },
-    serv: {
-    	type: String,
-    	required: true
+  mail: {
+    type: String
+    },
+  role: {
+    type: String,
+        required: true
     }
 });
 

@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 //подключение моделей
 const User = require('./models/user');
@@ -9,8 +10,10 @@ const Service = require('./models/service');
 
 //включение модулей
 const app = express();
+const jsonParser = express.json();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true}), cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 //стартовая страница
 app.get('/', (req, res) => {
@@ -21,8 +24,8 @@ app.get('/', (req, res) => {
 
 //регистрация пользователя
 app.get('/user_reg', (req, res) => res.render('user_reg')); 
-app.post('/user_reg', (req, res) => {
-	const {number, password, name} = req.body;
+app.post('/user_reg', jsonParser,  (req, res) => {
+    const {number, password, name} = req.body;
 	User.findOne({
 		number: number,
 		password: password
@@ -33,7 +36,8 @@ app.post('/user_reg', (req, res) => {
 				password: password,
 				name: name,
 				balance: 0,
-				mail: '-'
+				mail: '-',
+				role: 'user'
 			});
 			Service.create({
 				number: number,
@@ -41,11 +45,11 @@ app.post('/user_reg', (req, res) => {
 				confirmed: [],
 				bought: []
 			});
-			res.redirect('/');
+			res.json('Регистрация прошла успешно');
 		}
 		else {
 			//уведомление о том, что номер занят
-			res.redirect('/user_login');
+			res.json('Номер уже используется');
 		}
 	})
 	.catch(() => console.log('reg_error'));
@@ -53,20 +57,20 @@ app.post('/user_reg', (req, res) => {
 
 //авторизация пользователя
 app.get('/user_login', (req, res) => res.render('user_login')); 
-app.post('/user_login', (req, res) => {
-	const {number, password, name} = req.body;
+app.post('/user_login', jsonParser,  (req, res) => {
+    const {number, password, name} = req.body;
+    console.log('ne sex');
 	User.findOne({
 		number: number,
 		password: password
 	}).then(user => {
 		if (user) {
-			res.cookie('role', 'user'); 
-			res.cookie('number', number);
-			res.redirect('/user_cabinet');
+			user.password = 'good luck';
+			res.json(user);
 		}
 		else {
 			//уведомление о том, что пароль не верен
-			res.redirect('/user_login');
+			res.json('Неверный логин или пароль');
 		}
 	})
 	.catch(() => console.log('auth_error'));
@@ -97,7 +101,6 @@ app.post('/user_mail', (req, res) =>  {
 	const {mail} = req.body;
 	User.findOne({mail: mail}).then(user => {
 		if (!user) {
-			console.log('check');
 			User.updateOne({number: req.cookies.number}, {mail:mail}).then(() => res.redirect('/user_mail'));
 		}
 		else {
