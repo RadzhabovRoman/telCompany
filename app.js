@@ -27,8 +27,7 @@ app.get('/user_reg', (req, res) => res.render('user_reg'));
 app.post('/user_reg', jsonParser,  (req, res) => {
     const {number, password, name} = req.body;
 	User.findOne({
-		number: number,
-		password: password
+		number: number
 	}).then(user => {
 		if (!user) {
 			User.create({
@@ -59,7 +58,6 @@ app.post('/user_reg', jsonParser,  (req, res) => {
 app.get('/user_login', (req, res) => res.render('user_login')); 
 app.post('/user_login', jsonParser,  (req, res) => {
     const {number, password, name} = req.body;
-    console.log('ne sex');
 	User.findOne({
 		number: number,
 		password: password
@@ -97,15 +95,16 @@ app.get('/user_mail', (req, res) =>  {
 		res.redirect('/user_login');
 	}
 });
-app.post('/user_mail', (req, res) =>  {
+app.post('/user_mail', jsonParser, (req, res) =>  {
 	const {mail} = req.body;
+	console.log(mail);
 	User.findOne({mail: mail}).then(user => {
 		if (!user) {
-			User.updateOne({number: req.cookies.number}, {mail:mail}).then(() => res.redirect('/user_mail'));
+			User.updateOne({number: req.cookies.number}, {mail:mail}).then(() => res.json('Почта изменена'));
 		}
 		else {
 			//уведомление о том, что почта используется
-			res.redirect('/user_mail');
+			res.json('Такая почта уже используется');
 		}
 	});
 });

@@ -13,7 +13,7 @@ document.getElementById("submit").addEventListener("click", function (e) {
              request.addEventListener("load", function () {
                 // получаем и парсим ответ сервера
                  let answer = JSON.parse(request.response);
-                 if (answer === 'Неверный логин или пароль') {
+                 if (answer === "Неверный логин или пароль") {
                     alert(answer);
                  }
                  else {
@@ -23,7 +23,7 @@ document.getElementById("submit").addEventListener("click", function (e) {
                     let roleCookie = 'role' + "=" + role;
                     document.cookie = numberCookie;
                     document.cookie = roleCookie;
-                    window.location.replace('http://localhost:3000/user_cabinet');
+                    window.location.replace("http://localhost:3000/user_cabinet");
                  }
              });
              request.send(user);

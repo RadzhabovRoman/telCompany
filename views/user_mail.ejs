@@ -5,14 +5,15 @@
 	<title>Tel company</title>
 </head>
 <body>
-	<form method="post">
+	<form method="post" name="mailForm">
 		Текущая почта:
 		<br>
 		<%= user.mail %>
 		<br>
 		<input type="text" name="mail">
 		<br><br>
-		<button type="submit">Указать почту</button>
+		<button type="submit" id="submit">Указать почту</button>
 	</form>
+	<script src="/js/script_mail.js"></script>
 </body>
 </html>
