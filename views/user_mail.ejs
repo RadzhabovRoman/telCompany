@@ -8,7 +8,11 @@
 	<form method="post" name="mailForm">
 		Текущая почта:
 		<br>
-		<%= user.mail %>
+		<% if(user.mail == '-'){ %>
+			-не указана
+  		<% } else{ %>
+  			<%= user.mail %>
+  		<% } %>
 		<br>
 		<input type="text" name="mail">
 		<br><br>
