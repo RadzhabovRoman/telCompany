@@ -3,31 +3,34 @@
 <head>
 	<meta charset="utf-8">
 	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<form method="post" name="serviceForm">
+		<a href = "/user_cabinet">Назад</a>
+    	<br><br>
 		Доступные услуги:
-		<br>
+		<br><br>
 		<% if(service.available.length !== 0){ %>
 			<%for (let current in service.available){%>
  				<input type="checkbox" name="answer" value="<%= service.available[current] %>"> <%= service.available[current] %><br>
   			<%}%>
   			<br><br>
-			<button type="submit" id="submit">Заказать услугу</button>
+			<button type="submit" id="submit">Сделать заказ</button>
   		<% } else{ %>
   			-нет доступных услуг
   		<% } %>
 		<br><br>
 		Текущие заявки:
-		<br>
 		<% if(order){ %>
 			<%for (let current in order.services){%>
- 				<%= order.services[current] %><br>
+ 				<br><%= order.services[current] %>
   			<%}%>
   		<% } else{ %>
+  			<br>
   			-нет заказов
   		<% } %>
 	</form>
-	<script src="/js/script_potential.js"></script>
+	<script src="/js/user_potential.js"></script>
 </body>
 </html>

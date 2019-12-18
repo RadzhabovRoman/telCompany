@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form name="orderForm">
+    <a href = "/manager_cabinet">Назад</a>
+    <br><br>
+		<% if(!order || order.length === 0){ %>
+			Заявок нет
+  		<% } else{ %>
+  			Номер: <span id="number"><%=order.number %></span>
+  			<br><br>
+  			Услуги:
+  			<%for (let current in order.services){%>
+         		<div name="order" id="<%=current%>" value="<%=order.services[current]%>"><%= order.services[current] %></div>
+          	<%}%>
+  			<br><br>
+			<button type="submit" id="submit">Подтвердить</button>
+      <button type="submit" id="cancel">Опровергнуть</button>
+  		<% } %>
+	</form>
+	<script src="/js/manager_order.js"></script>
+</body>
+</html>

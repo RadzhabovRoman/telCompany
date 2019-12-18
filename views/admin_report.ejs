@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form method="post" name="checkForm">
+		<a href = "/admin_cabinet">Назад</a>
+    	<br><br>
+		Номер сотрудника:
+		<br><br>
+		<input type="text" name="number" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
+		<br><br>
+		<button type="submit" id="submit">Запрос</button>
+		<br><br>
+		<% if(manager){ %>
+	<br>
+		ФИО: 
+		<%=manager.name %>
+		<br>
+		Номер телефона: 
+		<%=manager.number %>
+		<br>
+		Рейтинг:
+		<%=manager.rating %>
+		<br>
+		Количество сделок:
+		<%=manager.sum %>
+		<br><br>		
+		<br>
+		<% if(reviews.length > 0){ %>
+			Отзывы:
+			<br>
+			<% for(let i=0; i < reviews.length; i++) { %>
+				Номер клиента:
+				<%=reviews[i].userNumber%>
+				<br>
+				<%=reviews[i].reviewText%>
+				<br><br>
+			<% } %>
+		<%} %>
+  	<% } else{ %>
+  		<br>
+  		Нет данных
+  	<% } %>
+	</form>
+</body>
+</html>

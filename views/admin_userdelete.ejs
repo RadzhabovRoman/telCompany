@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form method="post" name="deleteForm">
+		<a href = "/admin_cabinet">Назад</a>
+    	<br><br>
+		Номер телефона клиента:
+		<br><br>
+		<input type="text" name="number" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
+		<br><br>
+		<button type="submit" id="submit">Удалить</button>
+		<br><br>
+	</form>
+	<script src="/js/admin_userdelete.js"></script>
+</body>
+</html>

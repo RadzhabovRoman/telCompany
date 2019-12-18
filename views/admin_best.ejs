@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="align">
+    <a href = "/admin_cabinet">Назад</a>
+    <br><br>
+  	<% if(managers){ %>
+        Лучшие сотрудники
+        <br>
+        <%for (let current in managers){%>
+          <br>
+          <%= managers[current].reviewText %>
+          <br>
+          Номер менеджера: <%= managers[current].number %><br>
+          ФИО: <%= managers[current].name %><br>
+          Количество сделок: <%= managers[current].sum %><br>
+        <%}%>
+    <% } else{ %>
+      <br>
+      нет сотрудников
+    <% } %>
+  </div>
+</body>
+</html>

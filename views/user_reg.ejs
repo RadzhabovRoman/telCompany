@@ -3,23 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<form method="post" name="regForm">
-		ФИО
+		<a href = "/user_cabinet">Назад</a>
+    	<br><br>
+		<div>
+			ФИО<br>
+			<input type="text" name="name" pattern="[А-Я]{1}[а-я]+ [А-Я]{1}[а-я]+ [А-Я]{1}[а-я]+" required title="Пример: Иванов Иван Иванович"> 
+		</div>
 		<br>
-		<input type="text" name="name">
-		<br><br>
-		Номер телефона
+		<div>
+			Номер телефона<br>
+			<input type="text" name="number" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
+		</div>
 		<br>
-		<input type="text" name="number">
-		<br><br>
-		Пароль
+		<div>
+			Пароль<br>
+			<input type="text" name="password" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required title="Длина пароля >=8, должен содержать 1 букву или 1 цифру">
+		</div>
 		<br>
-		<input type="text" name="password">
-		<br><br>
-		<button type="submit" id="submit">Регистрация</button>
+		<div>
+			<button type="submit" id="submit">Регистрация</button>
+		</div>
 	</form>
-	<script src="/js/script_reg.js"></script>
+	<script src="/js/user_reg.js"></script>
 </body>
 </html>

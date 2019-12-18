@@ -3,9 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<form method="post" name="mailForm">
+		<a href = "/user_cabinet">Назад</a>
+    	<br><br>
 		Текущая почта:
 		<br>
 		<% if(user.mail == '-'){ %>
@@ -13,11 +16,12 @@
   		<% } else{ %>
   			<%= user.mail %>
   		<% } %>
-		<br>
-		<input type="text" name="mail">
+		<br><br>
+		Новая почта:<br>
+		<input type="text" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 		<br><br>
 		<button type="submit" id="submit">Указать почту</button>
 	</form>
-	<script src="/js/script_mail.js"></script>
+	<script src="/js/user_mail.js"></script>
 </body>
 </html>

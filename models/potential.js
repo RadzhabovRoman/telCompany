@@ -9,7 +9,11 @@ const schema = new Schema({
 	services: {
 		type: [String],
 		required: true
-	}
+	},
+	timestamp: {
+    type: Number,
+    default: Date.now
+  }
 });
 
 module.exports = mongoose.model('potential', schema);

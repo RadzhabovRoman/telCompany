@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form method="post" name="nameForm">
+		<a href = "/manager_cabinet">Назад</a>
+    	<br><br>
+		Номер:
+		<br>
+		<input type="text" name="number" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
+		<br><br>
+		Новое ФИО:
+		<br>
+		<input type="text" name="name" pattern="[А-Я]{1}[а-я]+ [А-Я]{1}[а-я]+ [А-Я]{1}[а-я]+" required title="Пример: Иванов Иван Иванович">
+		<br><br>
+		<button type="submit" id="submit">Изменить ФИО</button>
+	</form>
+	<script src="/js/manager_change.js"></script>
+</body>
+</html>

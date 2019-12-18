@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form method="post" name="listForm">
+		<a href = "/manager_cabinet">Назад</a>
+    	<br><br>
+		Для лучших сотрудников  <br><br>
+		<button type="submit" id="submit">Запрос</button>
+		<% if(list === "Недостаточно рейтинга"){ %>
+		<script type="text/javascript">
+			alert("Недостаточно рейтинга");
+		</script>
+	<% } else{ %>
+		<% if(list){ %>
+			<%for (let current in list){%>
+				<br><br>
+          		ФИО: <%= list[current].name %> | 
+          		Баланс: <%= list[current].balance %> |
+          		Номер: <%= list[current].number %>
+          	<%}%>
+		<% } %>
+	<% } %>
+	</form>
+	
+</body>
+</html>

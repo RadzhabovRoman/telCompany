@@ -3,27 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<title>Tel company</title>
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 	<form method="post" name="serviceForm">
+    <a href = "/user_cabinet">Назад</a>
+    <br><br>
 		Подтвержденные заявки:
 		<br>
 		<% if(service.confirmed.length !== 0){ %>
 			<%for (let current in service.confirmed){%>
  				<input type="checkbox" name="answer" value="<%= service.confirmed[current] %>"> <%= service.confirmed[current] %><br>
   			<%}%>
-  			Баланс: <%=balance%>
   			<br><br>
   			Сумма: <span id="sum">0</span>
-  			<script type="text/javascript" src="/js/script_sumpay.js"></script>
-  			<br><br>
+  			<script type="text/javascript" src="/js/user_sumpay.js"></script>
 			<button type="submit" id="submit">Оплатить</button>
   		<% } else{ %>
   			-нет подтвержденных заявок
-  			<br>
-  			Баланс: <%=balance%>
   		<% } %>
-  		<script src="/js/script_pay.js"></script>
+      <br><br>
+      Баланс: <%=balance%>
+      <br><br>
+      <% if(service.bought.length !== 0){ %>
+        Приобретённые услуги:
+        <%for (let current in service.bought){%>
+          <br>
+          <%= service.bought[current] %>
+          <%}%>
+      <% } %>
+  		<script src="/js/user_pay.js"></script>
 	</form>
 </body>
 </html>

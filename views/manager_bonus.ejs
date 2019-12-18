@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form method="post" name="bonusForm">
+		<a href = "/manager_cabinet">Назад</a>
+    	<br><br>
+		Номер:
+		<br>
+		<input type="text" name="number" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
+		<br><br>
+		Количество бонусов:
+		<br>
+		<input type="text" name="bonus" pattern="^[1-9][0-9]*$" title="Натуральное число">
+		<br><br>
+		<button type="submit" id="submit">Добавить</button>
+	</form>
+	<script src="/js/manager_bonus.js"></script>
+</body>
+</html>

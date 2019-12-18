@@ -1,0 +1,53 @@
+body
+{
+	background: #EDEEF0;
+	font: normal 28px/1 SansSerif, 'Gill Sans', sans-serif;
+	color: black;
+	text-align:center;
+	margin-top: 175px;
+}
+
+A
+{
+    color: #395485; 
+    text-decoration: none;
+}
+
+input:invalid
+{
+  background-color: #ffdddd;
+}
+
+input[type="text"]
+{
+	margin-top: 5px;
+    font: normal 24px/1 SansSerif, 'Gill Sans', sans-serif;
+}
+
+form
+{
+	display: inline-block; 
+	text-align: left;
+}
+
+.align
+{
+	display: inline-block; 
+	text-align: left;
+}
+
+button
+{
+	background: #5772A8;
+    border-radius: 7px;
+    padding: 6px 12px;
+  	font-size: 20px;
+  	color: white;
+  	cursor: pointer;
+}
+
+input[type="checkbox"]
+{
+	width : 18px;
+    height : 18px;
+}

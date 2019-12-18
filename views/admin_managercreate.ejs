@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tel company</title>
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<form method="post" name="createForm">
+		<a href = "/admin_cabinet">Назад</a>
+    	<br><br>
+		ФИО
+		<br>
+		<input type="text" name="name" pattern="[А-Я]{1}[а-я]+ [А-Я]{1}[а-я]+ [А-Я]{1}[а-я]+" required title="Пример: Иванов Иван Иванович"> 
+		<br><br>
+		Номер телефона
+		<br>
+		<input type="text" name="number" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
+		<br><br>
+		Пароль
+		<br>
+		<input type="text" name="password" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required title="Длина пароля >=8, должен содержать 1 букву или 1 цифру">
+		<br><br>
+		<button type="submit" id="submit">Добавить сотрудника</button>
+	</form>
+	<script src="/js/admin_managercreate.js"></script>
+</body>
+</html>

@@ -7,20 +7,21 @@
 </head>
 <body>
 	<form method="post" name="reviewForm">
+		<a href = "/user_cabinet">Назад</a>
+    	<br><br>
 		Номер телефона менеджера
 		<br>
-		<input type="text" name="managerNumber">
+		<input type="text" name="managerNumber" pattern="[0-9]{7}" required title="Номер состоит из 7 цифр">
 		<br><br>
 		Отзыв
 		<br>
-		<input type="text" name="reviewText">
+		<input type="text" name="reviewText" required>
 		<br><br>
 		Оценка от 1 до 5
 		<br>
-		<input type="text" name="rating">
+		<input type="text" name="rating" pattern="[1-5]{1}" required>
 		<br><br>
 		<button type="submit" id="submit">Отправить отзыв</button>
 	</form>
-    <script src="/js/script_review.js"></script>
 </body>
 </html>
